@@ -1,0 +1,21 @@
+
+.prsnl-profile {
+	font-size: 250px;
+}
+
+.prsnl-cust-list {
+	font-size: 100px;
+}
+
+.chkbox-cons-left {
+	width: 10%;
+}
+
+.extra-padding {
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+
+.list-group-item-text {
+	word-wrap: break-word;
+}

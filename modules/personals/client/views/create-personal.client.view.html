@@ -1,0 +1,110 @@
+<section data-ng-controller="PersonalsCreateController as createPrsnlCtrl">
+  
+  <div class="modal-header" style="background-color:lightgrey;">
+    <h3 style="color:#B22222;"><b> NEW PERSONAL</b></h3>
+  </div>
+  
+  <div class="modal-body" style="background-color:#BDB76B;">
+    <form name="createPersonalForm">
+      <fieldset>
+        <div class="form-group">
+            <uib-alert type="danger" data-ng-show="error" class="text-center text-danger">
+              <span data-ng-bind="error"></span>
+            </uib-alert>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 text-center form-group">
+            <i class="glyphicon glyphicon-user prsnl-profile"
+               ng-class="{'text-primary': createPrsnlCtrl.isConsultant, 'text-danger': !createPrsnlCtrl.isConsultant}">
+            </i>
+          </div>
+          
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="control-label" for="fName">First Name</label>
+              <div class="controls">
+                <input name="fName" type="text" data-ng-model="createPrsnlCtrl.fName" id="fName" class="form-control" placeholder="Enter your First Name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="lName">Last Name</label>
+              <div class="controls">
+                <input name="lName" type="text" data-ng-model="createPrsnlCtrl.lName" id="lName" class="form-control" placeholder="Enter your Last Name" required>
+              </div>
+            </div>
+          </div>
+          
+           <div class="col-sm-6">
+            <div class="form-group">
+              <label class="control-label" for="qualification">Qualification</label>
+              <div class="controls">
+                <input name="qualification" type="text" data-ng-model="createPrsnlCtrl.qualification" id="qualification" class="form-control" placeholder="Enter your qualification" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="experience">Experience</label>
+              <div class="controls">
+                <input name="experience" type="text" data-ng-model="createPrsnlCtrl.experience" id="experience" class="form-control" placeholder="Enter your experience" required>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-6 col-sm-push-6">
+            <div class="form-group">
+              <label class="control-label" for="contact">Contact Number</label>
+              <div class="controls">
+                <input name="contact" type="number" data-ng-model="createPrsnlCtrl.contact" id="contact" class="form-control" placeholder="Enter your contact number" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="emailId">Email Id</label>
+              <div class="controls">
+                <input name="emailId" type="text" data-ng-model="createPrsnlCtrl.emailId" id="emailId" class="form-control" placeholder="Enter your email id" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="control-label" for="treatment">Treatment</label>
+              <div class="controls">
+                <input name="treatment" type="text" data-ng-model="createPrsnlCtrl.treatment" id="treatment" class="form-control" placeholder="Enter Treatment">
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="control-label" for="duration">Duration</label>
+              <div class="controls">
+                <input name="duration" type="text" data-ng-model="createPrsnlCtrl.duration" id="duration" class="form-control" placeholder="Enter Duration">
+              </div>
+            </div>
+            
+          </div>       
+        
+          <div class="col-sm-6 col-sm-pull-6">
+            <div class="form-group">
+              <label class="control-label" for="speciality">Speciality</label>
+              <div class="controls">
+                <input name="speciality" type="text" data-ng-model="createPrsnlCtrl.speciality" id="speciality" class="form-control" placeholder="Enter your speciality">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="control-label" for="isConsultant">Consultant</label>
+              <div class="controls">
+                <input name="isConsultant" type="checkbox" data-ng-model="createPrsnlCtrl.isConsultant" id="isConsultant" class="form-control chkbox-cons-left">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </fieldset>
+     </form>
+  </div>
+  
+  <div class="modal-footer" style="background-color:lightgrey;">
+    <button class="btn btn-success" type="button" ng-click="createPrsnlCtrl.CreatePrsnl(personal); ok()" ng-disabled="createPersonalForm.$invalid">Save & Close</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+  </div>
+
+</section>

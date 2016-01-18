@@ -1,0 +1,108 @@
+
+<section data-ng-controller="EventsCreateController as createEventCtrl">
+      <div class="modal-header" style="background-color:lightgrey;">
+        <h3 class="modal-title" style="color:#B22222;"><b> NEW EVENT </b></h3>
+      </div>
+      
+      <div class="modal-body" style="background-color:#BDB76B;" >
+
+        <form class="form-horizontal" role="form" name="contactForm">
+            
+            <div class="form-group" ng-controller="PersonalsController as personalsCtrl">
+                <form name="prsnlForm">
+                    <label for="repeatSelect" style="margin-left: 3%;"><b> Consultants: </b></label>
+                    <select  style="height: 30px;" style="width: 180px;"  ng-model="personalsCtrl.selectedDropdownItem" ng-change="createEventCtrl.update(personalsCtrl.selectedDropdownItem)" 
+                            ng-options="personal.fName + ' ' + personal.lName  for personal in personalsCtrl.personals" value="{{createPrsnlCtrl.speciality}}" placeholder="Select Doctor">
+                            
+                    </select><br/> <br/>
+                    <p style="margin-left: 3%;"><b> Speciality/Qualification:  {{personalsCtrl.selectedDropdownItem.speciality}} 
+                        /
+                    {{personalsCtrl.selectedDropdownItem.qualification}}</b></p>
+                </form>
+                </div>
+                
+                <div class="form-group1" ng-controller="PersonalsController as personalsCtrl">
+                <form name="prsnlForm">
+                    <label for="repeatSelect" style="margin-left: 2%;"><b> Treatment: </b></label>
+                    <select  style="height: 30px;" style="width: 180px;" ng-model="personalsCtrl.selectedDropdownItem" ng-change="createEventCtrl.update(personalsCtrl.selectedDropdownItem)" 
+                            ng-options="personal.treatment for personal in personalsCtrl.personals" value="{{createPrsnlCtrl.treatment}}" placeholder="Select Treatment">
+                            
+                    </select><br/> <br/>
+               <p> <b style="margin-left: 2%;">Duration: {{personalsCtrl.selectedDropdownItem.duration}} </b> </p>
+               <!-- <form name="prsnlForm">
+                    <label for="repeatSelect"> Speciality : </label>
+                    <select ng-model="personalsCtrl.speciality" ng-change="createEventCtrl.update(personalsCtrl.speciality)" 
+                            ng-options="personal.speciality + ' ' + personal.lName  for personal in personalsCtrl.personals">
+                            
+                    </select>
+                </form>-->
+                
+            </div>
+
+            <!--<div class="form-group">
+                <label class="control-label col-sm-1" for="duration" style="margin-left: 2%;">Duration:</label>
+                <div class="col-sm-9">
+                    <select id="duration" class="form-control" ng-model="$parent.event.duration" ng-options="d.label for d in durations" style="width:auto" required></select>
+                </div>
+                
+               <label class="control-label col-sm-2" for="speciality">Speciality</label>
+                <div class="col-sm-10">
+                    <select id="speciality" class="form-control" ng-model="createPrsnlCtrl.speciality" ng-options="s.label for s in speciality" style="width:auto" required></select>
+                </div>
+            </div>-->
+            
+        </form>
+        
+        <form class="form-inline" name="timeForm">
+            
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="startDate" style="margin-left: 2%;">Start Date:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Select Date..." ng-model="$parent.event.startDate" id="startDate" 
+                           uib-datepicker-popup="MM-dd-yyyy" is-open="data.isOpen" ng-click="data.isOpen = true" required>  
+                </div>                
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="startTime" style="margin-left: 2%;">Start Time:</label>
+                <div class="col-sm-1">
+                    <uib-timepicker ng-model="$parent.event.startDate" name="startTime"> </uib-timepicker>
+                </div>                
+            </div>
+            </form>
+            
+        <form class="form-inline" name="contactForm">    
+           
+            <div class="form-group" style="margin-left: 2%;">
+              <label class="control-label" for="patientName">Patient Name:</label>
+              <div class="controls">
+                <input name="patientName" type="text" data-ng-model="$parent.patient.patientName" id="patientName" class="form-control" placeholder="Enter your Patient Name" required>
+              </div>
+            </div>
+           
+            <div class="form-group" style="margin-left: 1%;">
+              <label class="control-label" for="contactNumber">Contact Number:</label>
+              <div class="controls">
+                <input name="contactNumber" type="number" data-ng-model="$parent.patient.contactNumber" id="contactNumber" class="form-control" placeholder="Enter your Contact Number" required>
+              </div>
+            </div>
+           
+            <div class="form-group"  style="margin-left: 1%;">
+              <label class="control-label" for="emailId">Email Id:</label>
+              <div class="controls">
+                <input name="emailId" type="text" data-ng-model="$parent.patient.emailId" id="emailId" class="form-control" placeholder="Enter your Email Id" required>
+              </div>
+            </div>
+            
+         
+            
+        </form>     
+     </div>
+      
+      <div class="modal-footer" style="background-color:lightgrey;">
+        <button type="button" class="btn btn-success" ng-disabled="contactForm.$invalid || timeForm.$invalid" ng-click="createEventCtrl.addEvent();ok()">Add Event</button>
+        <button type="button" class="btn btn-warning" ng-click="cancel()">Close</button>
+      </div>
+
+</section>
+

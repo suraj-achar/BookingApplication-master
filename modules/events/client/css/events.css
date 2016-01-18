@@ -1,0 +1,31 @@
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+  .modal-body{
+      /*margin-left: 6%;
+      
+      margin-right: auto;*/
+      text-align:auto;
+      background-color:#BDB76B;
+     
+  }
+  /*.form-group1{
+      margin-left: -2%;
+      margin-right: auto;
+  }
+  
+  .consultants{
+      height: 30%;
+      width: 180px;
+  }
+  .treatments{
+      height:30px;
+      width: 430px;
+  }*/

@@ -1,0 +1,60 @@
+
+<section data-ng-controller="EventsController as eventCtrl">
+    
+ <div class="row">
+      
+    <div class="col-xs-8 col-sm-6 col-md-4">
+      <h2  style="color:#B22222;"><b> UPCOMING EVENTS</b></h2>
+    </div>
+      
+      <div class="form-group col-xs-4 col-sm-6 col-md-8 text-right pull-down">
+          <h2>
+          <button type="button" class="btn btn-success text-center" ng-click="eventCtrl.modelCreate('lg')">
+              <i class="glyphicon glyphicon-user"></i> <br>
+                  New Event
+          </button>                  
+          </h2>
+      </div>
+      
+  </div>
+    
+  <div class="row">
+    <div class="form-group col-xs-12 col-sm-8">
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" ng-model="searchText" placeholder="Search...">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="button">Go!></button>       
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <br>
+   
+    <div class="row" class="col-md-6">
+        <div class="form-group">         
+            
+            <div class="col-md-6">
+              <div ng-repeat="event in events | filter:searchText" class="listItem">
+                <a ng-click="setCurrentEvent(event)">{{event.summary}}</a>
+                - {{ event.start.dateTime || event.start.date | date:medium }}
+              </div>
+            </div> 
+            
+             <div id="calendar" class="col-md-6" ui-calendar="calOptions" ng-model="eventSources"> </div>
+            <div id="mainContent" class="col-md-6">
+                <h2>{{ currentEvent.summary }}</h2>
+                <div class="well" ng-show="currentEvent">
+                    When: {{currentEvent.start.date || currentEvent.start.dateTime | date:'MMM d, y @ h:mm a'}}<br/>
+                    Description: {{currentEvent.description}}<br/>
+                </div>
+            </div>
+        
+        </div>
+       
+    </div>
+
+</section>
+
